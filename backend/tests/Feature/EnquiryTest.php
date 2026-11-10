@@ -131,6 +131,8 @@ class EnquiryTest extends TestCase
         $mail->assertSeeInHtml('Line one<br />', escape: false);
         $mail->assertDontSeeInHtml('<script>alert(1)</script>', escape: false);
         $mail->assertSeeInText('Line two');
+        // Plain text isn't HTML, so it must not contain HTML entities.
+        $mail->assertSeeInText('<script>alert(1)</script>');
     }
 
     /**
