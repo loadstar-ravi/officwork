@@ -23,6 +23,7 @@
 - **No browser end-to-end tests.** Coverage comes from backend feature tests (real HTTP routing, database, validation and mail, with Fake Store faked) and frontend tests that render the whole app through the real router with the API client mocked. The full stack was checked by hand through Docker, including a real email landing in Mailpit.
 - **Development-grade containers.** PHP's built-in server and the Vite dev server, with dev dependencies included. Fine for running locally, not for production. No infrastructure-as-code is included.
 - **Categories come from the products** rather than Fake Store's `/products/categories` endpoint. This saves a request, and a category with no products doesn't appear.
+- **The backend is a stateless API.** Laravel's starter user accounts, password resets, sessions, web routes and example console command were removed because nothing uses them. Authentication comes back with the admin area (see next steps), not before.
 
 ## How the design supports growth
 
