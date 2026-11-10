@@ -34,4 +34,14 @@ class Enquiry extends Model
         'phone',
         'message',
     ];
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'product_id' => 'integer',
+        ];
+    }
 }

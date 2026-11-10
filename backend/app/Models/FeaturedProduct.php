@@ -26,4 +26,15 @@ class FeaturedProduct extends Model
         'product_id',
         'position',
     ];
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'product_id' => 'integer',
+            'position' => 'integer',
+        ];
+    }
 }
