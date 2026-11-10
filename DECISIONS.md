@@ -40,7 +40,7 @@ The brief names three things that will change. Each sits behind one boundary.
 - Colours, fonts, spacing and radii are design tokens in `frontend/src/styles/theme.css`, and components use semantic class names. Applying the brand's creative work starts in one file.
 
 **3. The email provider.**
-- The email is a queued Laravel `Mailable`. The provider is chosen by `MAIL_MAILER`: SES, Postmark, Resend, SMTP or Mailgun, all configuration with no code change.
+- The email is a queued Laravel `Mailable`. The provider is chosen by `MAIL_MAILER`: SES, Postmark, Resend, Mailgun or any SMTP service. Switching means installing that provider's transport package (e.g. `aws/aws-sdk-php` for SES) and setting its credentials, with no application code change.
 - The enquiry is saved before the email is queued, and the mail job retries with backoff, so a provider outage delays an email instead of losing an enquiry.
 
 **Path to AWS.** Each local piece has a direct AWS counterpart, switched by configuration:
